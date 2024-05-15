@@ -1,10 +1,15 @@
 package me.liwk.karhu.api.event;
 
 import me.liwk.karhu.api.exception.EventNotCancellableException;
+import org.bukkit.entity.Player;
+import org.bukkit.potion.PotionEffect;
+import org.bukkit.potion.PotionEffectType;
 
 public abstract class KarhuEvent {
 
     private boolean cancelled = false;
+
+    private Player bukkitPlayer;
 
     /**
      * Attempts to cancel the current fired event
@@ -17,6 +22,16 @@ public abstract class KarhuEvent {
             this.cancelled = true;
         }
     }
+
+    public boolean hasSpeedEffect() {
+        for (PotionEffect effect : bukkitPlayer.getActivePotionEffects()) {
+            if (effect.getType().equals(PotionEffectType.SPEED)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
 
     /**
      * Checks if the event is cancellable
