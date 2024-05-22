@@ -1,22 +1,22 @@
-# KarhuAPI
-Karhu Anticheat Developer API
+# IceAC
+ Karhu anticheat skid made by winterlegends skidders
 
-Please note that you need to drop KarhuAPI.jar into plugins folder for it to work.
+Please note that you need to drop Skidders.jar into plugins folder for it to work.
 
 Example below
 
-public final class ExampleListener implements KarhuListener {
+public final class SkiddersListener implements SkidListener {
 
     public ExampleListener() {
-        KarhuAPI.getEventRegistry().addListener(this);
+        SkidAPI.getEventRegistry().addListener(this);
     }
 
     @Override
-    public void onEvent(KarhuEvent event) {
+    public void onEvent(SkidEvent event) {
 
-        if(event instanceof KarhuAlertEvent){
-           final CheckData check = ((KarhuAlertEvent) event).getCheck();
-           final Player player = ((KarhuAlertEvent) event).getPlayer();
+        if(event instanceof SkidAlertEvent){
+           final CheckData check = ((SkidAlertEvent) event).getCheck();
+           final Player player = ((SkidAlertEvent) event).getPlayer();
         }
 
     }
